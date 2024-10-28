@@ -17,7 +17,7 @@ body
     "created": 1698175200,
     "user": {
       "id": "user123",
-      "name": "Ебланчик",
+      "name": "Имя",
       "avatar": "avatar1"
     }
   }
