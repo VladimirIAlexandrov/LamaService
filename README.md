@@ -25,10 +25,14 @@ body
 ```
 
 ## SOCKET
+
+Слушать
+
 - `Name: new_answer`
-  
- body 
- 
+
+Возвращает Json
+
+ body
   ```
   {
       "answer": {
@@ -41,5 +45,5 @@ body
 
 ## Ping - Pong
 При подключении клиент оправляет ***ping_event*** , далее при прослушавании ***pong_event***
-  - `pong_event`  - клиент слушает
-  - `ping_event`  - клиент отправляет
+  - `Name: pong_event`  - клиент слушает
+  - `Name: ping_event`  - клиент отправляет
