@@ -1,0 +1,7 @@
+.idea/.name
+.idea/
+testGPU.py
+__pycache__/ApiServer.cpython-310.pyc
+utils/__pycache__/Сonst.cpython-310.pyc
+__pycache__/Models.cpython-310.pyc
+__pycache__/LamaService.cpython-310.pyc
