@@ -4,6 +4,7 @@ import torch
 from ctransformers import AutoModelForCausalLM
 import time
 from Models import *
+from utils.InitDataBase import InitDataBase
 from utils.Сonst import Const
 
 model_path = Const.ModelLlamaPath.LLAMA_2_7B
@@ -33,12 +34,14 @@ async def lamaStart(message_text: str) -> str:
 
 
 async def generateMessage(message: Message) -> Answer:
-    answer = await lamaStart(message.message)
-    response_timestamp = int(datetime.utcnow().timestamp())
+    dataBase = InitDataBase()
+    msg = dataBase.getHistoryMessage(message.groupId)[-512:]
+    answer = await lamaStart(msg)
+
     print('Генерация завершена - Ответ: ' + answer)
     answerModel = Answer(
         answer=answer,
         messageId=message.id,
-        created=response_timestamp
+        created=int(datetime.utcnow().timestamp())
     )
     return answerModel

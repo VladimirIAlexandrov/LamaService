@@ -37,8 +37,8 @@ def on_new_answer(data):
 
 def start_client():
     try:
-        sio.connect('http://192.168.1.120:8300')
-        #sio.connect('http://127.0.0.1:8300')
+        #sio.connect('http://192.168.1.120:8300')
+        sio.connect('http://127.0.0.1:8300')
         sio.wait()
     except Exception as e:
         print("Ошибка при подключении или во время работы:", e)
