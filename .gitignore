@@ -5,3 +5,7 @@ __pycache__/ApiServer.cpython-310.pyc
 utils/__pycache__/Сonst.cpython-310.pyc
 __pycache__/Models.cpython-310.pyc
 __pycache__/LamaService.cpython-310.pyc
+README.md
+utils/__pycache__/Utils.cpython-310.pyc
+utils/__pycache__/InitDataBase.cpython-310.pyc
+utils/database/__pycache__/DatabaseManager.cpython-310.pyc

@@ -1,3 +1,6 @@
+from Models import User
+
+
 class Const:
     class SocketMessageName:
         connect = 'connect'
@@ -30,3 +33,9 @@ class Const:
 
     class ModelLlamaPath:
         LLAMA_2_7B = 'C:\\maga\\Zinkin\\llama-2-7b-chat.Q3_K_M.gguf'
+    class AiUserModel:
+        AI_LLAMA = User(
+            id='AI-cyborg_killer_Т800',
+            name='Cyborg Killer',
+            avatar='nuclear'
+        )
