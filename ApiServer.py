@@ -43,7 +43,7 @@ def receive_message():
         data = request.json
         message = Models.Message.parse_obj(data['message'])
         print(f"Получено сообщение с ID: {message}")
-
+        message.created = int(datetime.utcnow().timestamp())                             #Временно!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         dataBase.insertMessageModelData(message)  # сохраняем полученые данные в базу
 
         socketio.start_background_task(sync_process_message, message)

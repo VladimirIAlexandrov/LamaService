@@ -64,25 +64,20 @@ class DatabaseManager:
             """, (group_id, message_id, user_id))
         self.connection.commit()
 
-    def get_last_five_messages_for_group(self, group_id: str, countMessages: int = 5):
+    def get_last_five_messages_for_group(self, group_id: str):
         with self.connection.cursor() as cursor:
-            cursor.execute("""
-                SELECT messages.message
-                FROM messages
-                WHERE messages.id IN (
-                    SELECT groups.MessageId
-                    FROM groups
-                    WHERE groups.id = %s
-                    ORDER BY groups.group_entry_id DESC
-                    LIMIT %s
-                )
-            """, (group_id, countMessages))
+            cursor.execute("""SELECT m.message
+                                FROM messages m
+                                JOIN groups g ON m.id = g.messageid
+                                WHERE g.id = '"""+group_id+"""'
+                                ORDER BY m.created DESC
+                                LIMIT 5;""")
 
             rows = cursor.fetchall()
 
         # Объединяем только текст сообщений в одну строку, добавляя каждый через новую строку
         if rows:
-            messages_str = "\n".join(row[0] for row in rows)
+            messages_str = "\n".join(row[0] for row in reversed(rows))
         else:
             messages_str = "No messages found."
         return messages_str

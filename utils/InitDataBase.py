@@ -26,6 +26,6 @@ class InitDataBase:
 
 
     def getHistoryMessage(self, groupId: str):
-        lastMessages = self.database_manager.get_last_five_messages_for_group(groupId, 5)
+        lastMessages = self.database_manager.get_last_five_messages_for_group(groupId)
         return lastMessages
 

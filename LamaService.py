@@ -36,9 +36,10 @@ async def lamaStart(message_text: str) -> str:
 async def generateMessage(message: Message) -> Answer:
     dataBase = InitDataBase()
     msg = dataBase.getHistoryMessage(message.groupId)[-512:]
+    print('\n_______________\nЗапрос к нейросети: ' + msg + "\n_______________\n")
     answer = await lamaStart(msg)
 
-    print('Генерация завершена - Ответ: ' + answer)
+    print('\n_______________\nГенерация завершена - Ответ: ' + answer + "\n_______________\n")
     answerModel = Answer(
         answer=answer,
         messageId=message.id,
